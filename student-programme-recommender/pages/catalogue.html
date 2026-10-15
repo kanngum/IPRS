@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Programme Catalogue | PathFinder</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="../index.html">PathFinder</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="../index.html">Home</a>
+        <a class="nav-link active" href="catalogue.html">Programmes</a>
+        <a class="nav-link" href="assessment.html">Assessment</a>
+        <a class="nav-link" href="dashboard.html">Dashboard</a>
+        <a class="nav-link" href="compare.html">Compare</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main class="container py-5">
+  <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+    <div>
+      <span class="badge text-bg-light border mb-2">EXPLORE OPTIONS</span>
+      <h1 class="fw-bold">Programme catalogue</h1>
+      <p class="text-secondary mb-0">Discover academic pathways and compare your options.</p>
+    </div>
+    <a href="assessment.html" class="btn btn-primary"><i class="bi bi-stars me-2"></i>Get recommendations</a>
+  </div>
+
+  <div class="card border-0 shadow-sm p-3 p-md-4 mb-4">
+    <div class="row g-3">
+      <div class="col-lg-5">
+        <label class="form-label" for="searchInput">Search programmes</label>
+        <input class="form-control" id="searchInput" placeholder="Title, institution, skill or career...">
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <label class="form-label" for="fieldFilter">Field of study</label>
+        <select class="form-select" id="fieldFilter">
+          <option value="">All fields</option>
+        </select>
+      </div>
+      <div class="col-md-6 col-lg-2">
+        <label class="form-label" for="levelFilter">Qualification</label>
+        <select class="form-select" id="levelFilter">
+          <option value="">All levels</option>
+        </select>
+      </div>
+      <div class="col-lg-2 d-flex align-items-end">
+        <button class="btn btn-outline-secondary w-100" id="resetFilters">Reset filters</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-between mb-3">
+    <p class="text-secondary small mb-0" id="catalogueCount" aria-live="polite"></p>
+    <a href="compare.html" class="small text-decoration-none">Open comparison <i class="bi bi-arrow-right"></i></a>
+  </div>
+
+  <div class="row g-4" id="programmeGrid"></div>
+  <div id="emptyState" class="text-center py-5 d-none">
+    <i class="bi bi-search display-4 text-secondary"></i>
+    <h2 class="h4 mt-3">No matching programmes</h2>
+    <p class="text-secondary">Try another search term or reset the filters.</p>
+  </div>
+  <div class="alert alert-warning mt-4 small">
+    The current dataset contains illustrative programmes for prototype testing. Confirm programme availability, institutions and entry requirements before relying on the information.
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/app.js"></script>
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/catalogue.js"></script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Management | PathFinder Admin</title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-white border-bottom">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">
+        <i class="bi bi-mortarboard-fill me-2"></i>PathFinder Admin
+      </a>
+
+      <div class="ms-auto d-flex gap-2">
+        <a href="index.html" class="btn btn-outline-secondary btn-sm">
+          <i class="bi bi-speedometer2 me-1"></i>Dashboard
+        </a>
+        <a href="programmes.html" class="btn btn-outline-primary btn-sm">
+          <i class="bi bi-journal-text me-1"></i>Programmes
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-4 py-lg-5">
+    <div class="mb-4">
+      <p class="text-primary fw-semibold mb-1">ADMINISTRATION</p>
+      <h1 class="h2 fw-bold">Data Management</h1>
+      <p class="text-secondary mb-0">
+        Import, validate, export and restore the programme catalogue.
+      </p>
+    </div>
+
+    <div id="pageMessage" class="mb-3" aria-live="polite"></div>
+
+    <div class="row g-3 mb-4">
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <div class="text-secondary small">Current programmes</div>
+            <div class="display-6 fw-bold" id="currentCount">—</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <div class="text-secondary small">Verified records</div>
+            <div class="display-6 fw-bold" id="verifiedCount">—</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <div class="text-secondary small">Last operation</div>
+            <div class="h5 fw-semibold mt-2" id="lastOperation">None yet</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <section class="card shadow-sm h-100">
+          <div class="card-body p-4">
+            <h2 class="h5 fw-bold">
+              <i class="bi bi-file-earmark-arrow-up me-2 text-primary"></i>
+              Import programme data
+            </h2>
+
+            <p class="text-secondary small">
+              Select a JSON file containing an array of programme records.
+              The file will be validated before any changes are saved.
+            </p>
+
+            <form id="importForm">
+              <div class="mb-3">
+                <label for="jsonFile" class="form-label fw-semibold">
+                  JSON file
+                </label>
+                <input
+                  class="form-control"
+                  type="file"
+                  id="jsonFile"
+                  accept=".json,application/json"
+                  required
+                >
+              </div>
+
+              <div class="mb-3">
+                <label for="importMode" class="form-label fw-semibold">
+                  Import method
+                </label>
+                <select class="form-select" id="importMode">
+                  <option value="replace">Replace entire catalogue</option>
+                  <option value="merge">Merge by programme ID</option>
+                </select>
+                <div class="form-text">
+                  Merge updates matching IDs and adds new IDs. Existing
+                  records not present in the file are kept.
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary">
+                <i class="bi bi-check2-circle me-1"></i>Validate and Import
+              </button>
+            </form>
+
+            <hr class="my-4">
+
+            <h3 class="h6 fw-bold">Validation results</h3>
+            <div id="validationResults" class="small text-secondary">
+              No file has been checked yet.
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="col-lg-6">
+        <section class="card shadow-sm mb-4">
+          <div class="card-body p-4">
+            <h2 class="h5 fw-bold">
+              <i class="bi bi-shield-check me-2 text-success"></i>
+              Export a backup
+            </h2>
+            <p class="text-secondary small">
+              Download the current catalogue as a JSON file for backup,
+              review or transfer.
+            </p>
+            <button type="button" id="exportBtn" class="btn btn-outline-success">
+              <i class="bi bi-download me-1"></i>Export Catalogue
+            </button>
+          </div>
+        </section>
+
+        <section class="card shadow-sm">
+          <div class="card-body p-4">
+            <h2 class="h5 fw-bold">
+              <i class="bi bi-arrow-counterclockwise me-2 text-warning"></i>
+              Restore original catalogue
+            </h2>
+            <p class="text-secondary small">
+              Replace locally saved changes with the original
+              <code>data/programmes.json</code> file.
+            </p>
+            <button type="button" id="restoreBtn" class="btn btn-outline-danger">
+              <i class="bi bi-arrow-repeat me-1"></i>Restore Original Data
+            </button>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <section class="card shadow-sm mt-4">
+      <div class="card-body p-4">
+        <h2 class="h5 fw-bold">Before importing</h2>
+        <ul class="text-secondary mb-0">
+          <li>The JSON root must be an array of programme objects.</li>
+          <li>Each record must have a unique, non-empty ID, title and institution.</li>
+          <li>Invalid files are rejected before the catalogue is saved.</li>
+          <li>Export a backup before replacing important data.</li>
+          <li>Mark a programme as verified only after checking its official source.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="../../assets/js/data.js"></script>
+  <script src="../../assets/js/admin-data.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

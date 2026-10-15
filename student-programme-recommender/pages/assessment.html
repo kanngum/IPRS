@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Complete your academic and career assessment to explore suitable higher education programmes.">
+  <title>Student Assessment | PathFinder</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="../index.html">PathFinder</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="../index.html">Home</a>
+        <a class="nav-link" href="catalogue.html">Programmes</a>
+        <a class="nav-link active" href="assessment.html">Assessment</a>
+        <a class="nav-link" href="dashboard.html">Dashboard</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main class="container py-5">
+  <div class="mb-4">
+    <span class="badge text-bg-light border mb-2">STUDENT ASSESSMENT</span>
+    <h1 class="fw-bold">Find programmes that fit you</h1>
+    <p class="text-secondary">Tell us about your academic background, interests and career goals.</p>
+  </div>
+
+  <div class="progress mb-4" style="height: 6px;">
+    <div class="progress-bar" style="width: 100%; background: #0f9d91;"></div>
+  </div>
+
+  <form id="assessmentForm" class="row g-4">
+    <section class="col-12">
+      <div class="card border-0 shadow-sm p-3 p-md-4">
+        <h2 class="h4 mb-3"><i class="bi bi-person me-2"></i>1. Student profile</h2>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="studentName" class="form-label">Full name</label>
+            <input class="form-control" id="studentName" name="studentName" autocomplete="name" required>
+          </div>
+          <div class="col-md-6">
+            <label for="educationLevel" class="form-label">Current or highest education level</label>
+            <select class="form-select" id="educationLevel" name="educationLevel" required>
+              <option value="">Select level</option>
+              <option value="Ordinary Level">Ordinary Level</option>
+              <option value="Advanced Level">Advanced Level</option>
+              <option value="Technical or Vocational">Technical or Vocational</option>
+              <option value="Bachelor's degree">Bachelor's degree</option>
+              <option value="HND">HND</option>
+              <option value="Master's degree">Master's degree</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label for="gradeAverage" class="form-label">Average grade or score (optional)</label>
+            <input class="form-control" id="gradeAverage" name="gradeAverage" placeholder="e.g. 14/20 or 72%">
+            <div class="form-text">Enter the score as text. Different grading systems are not directly comparable.</div>
+          </div>
+          <div class="col-md-6">
+            <label for="preferredLevel" class="form-label">Programme level you want</label>
+            <select class="form-select" id="preferredLevel" name="preferredLevel" required>
+              <option value="">Select preferred level</option>
+              <option value="Any">Any level</option>
+              <option value="HND">HND</option>
+              <option value="Bachelor's degree">Bachelor's degree</option>
+              <option value="Master's degree">Master's degree</option>
+              <option value="Vocational">Vocational training</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="col-12">
+      <div class="card border-0 shadow-sm p-3 p-md-4">
+        <h2 class="h4 mb-2"><i class="bi bi-journal-text me-2"></i>2. Subjects studied</h2>
+        <p class="text-secondary small">Select subjects relevant to your academic background.</p>
+        <div class="row g-2">
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="subjects" value="Mathematics"> Mathematics</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="subjects" value="Computer Science"> Computer Science</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="subjects" value="Physics"> Physics</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="subjects" value="English"> English</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="subjects" value="Biology"> Biology</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="subjects" value="Chemistry"> Chemistry</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="subjects" value="Economics"> Economics</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="subjects" value="Accounting"> Accounting</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="subjects" value="Business Studies"> Business Studies</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="subjects" value="Technical Drawing"> Technical Drawing</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="subjects" value="Geography"> Geography</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="subjects" value="Other"> Other</label></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="col-12">
+      <div class="card border-0 shadow-sm p-3 p-md-4">
+        <h2 class="h4 mb-2"><i class="bi bi-lightbulb me-2"></i>3. Interests and career goals</h2>
+        <p class="text-secondary small">Select all options that genuinely interest you.</p>
+
+        <label class="form-label fw-semibold">Areas of interest</label>
+        <div class="row g-2 mb-4">
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="interests" value="Technology"> Technology</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="interests" value="Business"> Business</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="interests" value="Research"> Research</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="interests" value="Security"> Security</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="interests" value="Data and Analytics"> Data and Analytics</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="interests" value="Engineering"> Engineering</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="interests" value="Entrepreneurship"> Entrepreneurship</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="interests" value="Education"> Education</label></div>
+        </div>
+
+        <label class="form-label fw-semibold">Preferred career paths</label>
+        <div class="row g-2 mb-4">
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="careers" value="Software Developer"> Software Developer</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="careers" value="Cybersecurity Analyst"> Cybersecurity Analyst</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="careers" value="Data Analyst"> Data Analyst</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="careers" value="Business Manager"> Business Manager</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="careers" value="Researcher"> Researcher</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="careers" value="Systems Engineer"> Systems Engineer</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="careers" value="Entrepreneur"> Entrepreneur</label></div>
+        </div>
+
+        <label class="form-label fw-semibold">Skills you already have</label>
+        <div class="row g-2">
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="skills" value="Programming"> Programming</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="skills" value="Problem Solving"> Problem solving</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="skills" value="Communication"> Communication</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="skills" value="Data Analysis"> Data analysis</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="skills" value="Networking"> Networking</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="skills" value="Leadership"> Leadership</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="skills" value="Research"> Research</label></div>
+          <div class="col-6 col-md-4"><label class="form-check"><input class="form-check-input" type="checkbox" name="skills" value="Design"> Design</label></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="col-12">
+      <div class="alert alert-info small">
+        <strong>Important:</strong> recommendations indicate programme compatibility, not confirmed admission eligibility. Official entry requirements must be verified with each institution.
+      </div>
+      <button class="btn btn-primary btn-lg" type="submit">
+        Generate my recommendations <i class="bi bi-arrow-right ms-2"></i>
+      </button>
+      <a href="../index.html" class="btn btn-outline-secondary btn-lg ms-2">Cancel</a>
+    </div>
+  </form>
+</main>
+
+<footer class="border-top py-4 mt-5">
+  <div class="container text-secondary small">© <span id="currentYear"></span> PathFinder. Programme information requires verification.</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/app.js"></script>
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/recommendation.js"></script>
+</body>
+</html>
